@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "liked_objects",
+  "info": {
+    "singularName": "liked-object",
+    "pluralName": "liked-objects",
+    "displayName": "Liked_object"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "address": {
+      "type": "text"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "liked_object"
+    }
+  }
+}
