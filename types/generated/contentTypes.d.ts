@@ -368,6 +368,7 @@ export interface ApiLikedObjectLikedObject extends Schema.CollectionType {
     singularName: 'liked-object';
     pluralName: 'liked-objects';
     displayName: 'Liked_object';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -379,9 +380,11 @@ export interface ApiLikedObjectLikedObject extends Schema.CollectionType {
     picture: Attribute.Media;
     users_permissions_user: Attribute.Relation<
       'api::liked-object.liked-object',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
+    lantitude: Attribute.String;
+    longtitude: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -422,6 +425,8 @@ export interface ApiPlacePlace extends Schema.CollectionType {
       'manyToOne',
       'api::route.route'
     >;
+    longitude: Attribute.String;
+    latitude: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -779,9 +784,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    liked_object: Attribute.Relation<
+    liked_objects: Attribute.Relation<
       'plugin::users-permissions.user',
-      'oneToOne',
+      'oneToMany',
       'api::liked-object.liked-object'
     >;
     createdAt: Attribute.DateTime;

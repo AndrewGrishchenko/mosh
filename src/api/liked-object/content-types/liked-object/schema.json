@@ -4,7 +4,8 @@
   "info": {
     "singularName": "liked-object",
     "pluralName": "liked-objects",
-    "displayName": "Liked_object"
+    "displayName": "Liked_object",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,20 +22,27 @@
       "type": "text"
     },
     "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "liked_object"
+      "inversedBy": "liked_objects"
+    },
+    "lantitude": {
+      "type": "string"
+    },
+    "longtitude": {
+      "type": "string"
     }
   }
 }

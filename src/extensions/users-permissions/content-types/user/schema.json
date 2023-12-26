@@ -66,9 +66,9 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "liked_object": {
+    "liked_objects": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::liked-object.liked-object",
       "mappedBy": "users_permissions_user"
     }
